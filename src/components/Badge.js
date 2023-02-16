@@ -1,19 +1,23 @@
 import React from "react";
 
-const Badge = () => {
+const Badge = ({ profile }) => {
+  const { image, interests, hobbies, skills } = profile
   return(
     <React.Fragment>
-      <img src="#" alt="title" />
-      <ul>
-        <li>interests</li>
+      <img src={image} width="300px" alt="Profile" />
+      <br />
+      Interests
+      <ul> 
+        {interests.map((element) => <li>{element}</li>)}
       </ul>
 
-      <ul>
-        <li>hobbies</li>
+      Hobbies
+      <ul> 
+        {hobbies.map((element) => <li>{element}</li>)}
       </ul>
-
-      <ul>
-        <li>skills</li>
+      Skills
+      <ul> 
+        {skills.map((element) => <li>{element}</li>)}
       </ul>
 
     </React.Fragment>
