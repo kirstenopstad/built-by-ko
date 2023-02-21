@@ -26,8 +26,8 @@ const Project = ({project}) => {
 
     
     <React.Fragment>
-      <Col>
-      <div className="project">
+      <Col className="project">
+      <div >
         <Card>
           <Card.Img variant="top" src={image} alt={title} />
           <Card.Body>

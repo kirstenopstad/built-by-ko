@@ -11,7 +11,9 @@ function App() {
     <Header />
     <Container fluid>
       <Profile />
-      <Portfolio />
+      <div className="portfolio">
+        <Portfolio />
+      </div>
     </Container>
    </React.Fragment>
   );

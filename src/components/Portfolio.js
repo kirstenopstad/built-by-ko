@@ -6,7 +6,8 @@ import portfolioData from '../portfolioSeedData'
 const Portfolio = () => {
   return(
     <React.Fragment>
-      <List portfolio={portfolioData}/>
+        <h2 class="section">Portfolio</h2>
+        <List portfolio={portfolioData}/>
       {/* <Detail /> */}
     </React.Fragment>
   );
