@@ -4,22 +4,36 @@ const Badge = ({ profile }) => {
   const { image, interests, hobbies, skills } = profile
   return(
     <React.Fragment>
-      <img src={image} width="300px" alt="Profile" />
-      <br />
-      Interests
-      <ul> 
-        {interests.map((element) => <li>{element}</li>)}
-      </ul>
-
-      Hobbies
-      <ul> 
-        {hobbies.map((element) => <li>{element}</li>)}
-      </ul>
-      Skills
-      <ul> 
-        {skills.map((element) => <li>{element}</li>)}
-      </ul>
-
+      <div class="col-5">
+        <div class="row">
+          <div class="col-12" id="about-photo">
+            <img src={image} width="300px" alt="Profile" />
+          </div>
+        </div>
+        <div class="row">
+              <div class="about-badge col-12">
+                <br />
+                Interests
+                <ul> 
+                  {interests.map((element, index) => <li key={index}>{element}</li>)}
+                </ul>
+              </div>
+        </div>
+        <div class="row">
+            <div class="about-badge col-6">
+              Hobbies
+              <ul> 
+                {hobbies.map((element, index) => <li key={index}>{element}</li>)}
+              </ul>
+            </div>
+            <div class="about-badge col-6">
+              Skills
+              <ul> 
+                {skills.map((element, index) => <li key={index}>{element}</li>)}
+              </ul>
+            </div>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

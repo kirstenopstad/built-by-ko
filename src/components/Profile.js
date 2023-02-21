@@ -6,8 +6,13 @@ import profileData from '../profileSeedData'
 const Profile = () => {
   return(
     <React.Fragment>
-      <Bio bio={profileData.background}/>
-      <Badge profile={profileData}/>
+      <div className="about">
+        <h2 className="section">About</h2>
+        <div class="row">
+          <Bio bio={profileData.background}/>
+          <Badge profile={profileData}/>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

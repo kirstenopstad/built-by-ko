@@ -1,11 +1,12 @@
 import React from "react";
 import List from '../components/List'
-import Detail from '../components/Detail'
+// import Detail from '../components/Detail'
+import portfolioData from '../portfolioSeedData'
 
 const Portfolio = () => {
   return(
     <React.Fragment>
-      <List />
+      <List portfolio={portfolioData}/>
       {/* <Detail /> */}
     </React.Fragment>
   );

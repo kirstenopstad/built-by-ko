@@ -4,7 +4,9 @@ const Bio = ({ bio }) => {
 
   return(
     <React.Fragment>
-      <p>{bio}</p>
+      <div class="about-text col-7">
+        <p>{bio}</p>
+      </div>
     </React.Fragment>
   );
 }

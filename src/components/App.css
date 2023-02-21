@@ -1,38 +1,134 @@
-.App {
+h2 {
   text-align: center;
+  margin: 20px 0px 20px 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: large;
+  font-weight: 200;
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h5 {
+  text-transform: capitalize;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.about img {
+  max-width: 300px;
+}
+
+.about-badge {
+  width: 100%;
+  font-size: 90%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.about-text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 110%;
+}
+
+.about-text p {
+  max-width: 550px;
+  margin-left: 50px;
+}
+
+.about-text ol {
+  margin-left: 50px;
+}
+
+#about-photo img {
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 15px;
+}
+
+.footer {
+  width: 100%;
+  background-color: black;
+  color: lightgray;
+  padding-top: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.header {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.header h1 {
+  position: absolute;
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#header-photo {
+  background-image: url(../img/ko-couch.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+  background-position-y: 50%;
+  background-position-x: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-title {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 90%;
+}
+
+.portfolio {
+  width: fit-content;
+}
+
+.project {
+  width: 20rem;
+}
+
+.project img {
+  width: 100%;
+}
+
+.project h4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: larger;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.project h5 {
+  font-weight: 300;
+}
+
+.project p {
+  font-size: 85%;
+}
+
+.project-summary {
+  max-height: 50vh;
+  /* overflow: scroll; */
+}
+
+.section {
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.card {
+  min-width: 300px;
 }
