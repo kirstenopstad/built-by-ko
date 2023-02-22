@@ -5,25 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 const Project = ({project}) => {
   const {title, tagline, description, techUsed, liveLink, gitLink, image} = project;
-  // <Col className="inventory-card">
-  //       <Card style={{ width: '18rem' }}>
-  //         <Card.Img variant="top" src={img}/>
-  //         <Card.Body>
-  //           <Card.Title>{name}</Card.Title>
-  //           <Card.Text>
-  //             {summary}
-  //           </Card.Text>
-  //           <p>{origin} ${price} {roast}</p>
-  //           <p>{stock}</p>
-  //         <form onSubmit={handleSellClick}>
-  //             <Button variant="secondary"  onClick={() => onItemClick(id)}>Details</Button>
-  //             <Button variant={sellButtonStatus} type="submit">{sellButtonText}</Button>
-  //         </form>
-  //         </Card.Body>
-  //       </Card>
-  //     </Col>
   return(
-
     
     <React.Fragment>
       <Col className="project">

@@ -1,39 +1,34 @@
 import React from "react";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const Badge = ({ profile }) => {
   const { image, interests, hobbies, skills } = profile
   return(
     <React.Fragment>
-      <div class="col-5">
-        <div class="row">
-          <div class="col-12" id="about-photo">
-            <img src={image} width="300px" alt="Profile" />
+      <Col>
+        <div className="about-badge">
+          <div id="about-photo">
+            <img src={image} alt="Profile" />
           </div>
-        </div>
-        <div class="row">
-              <div class="about-badge col-12">
-                <br />
-                Interests
-                <ul> 
-                  {interests.map((element, index) => <li key={index}>{element}</li>)}
-                </ul>
-              </div>
-        </div>
-        <div class="row">
-            <div class="about-badge col-6">
+          <div className="about-badge-lists">
+            <Col>
+              Interests
+              <ul> 
+                {interests.map((element, index) => <li key={index}>{element}</li>)}
+              </ul>
               Hobbies
               <ul> 
                 {hobbies.map((element, index) => <li key={index}>{element}</li>)}
               </ul>
-            </div>
-            <div class="about-badge col-6">
               Skills
               <ul> 
                 {skills.map((element, index) => <li key={index}>{element}</li>)}
               </ul>
-            </div>
+            </Col>
+          </div>
         </div>
-      </div>
+      </Col>
     </React.Fragment>
   );
 }
