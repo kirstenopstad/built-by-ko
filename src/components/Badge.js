@@ -1,6 +1,5 @@
 import React from "react";
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 const Badge = ({ profile }) => {
   const { image, interests, hobbies, skills, links } = profile
@@ -14,7 +13,7 @@ const Badge = ({ profile }) => {
           </div>
           <div className="icons">
             {Object.values(links).map((element, index) => 
-              <a href={element.link}>
+              <a href={element.link} key={index}>
                 <img src={element.img} alt={linksList[index]}/>
               </a>
             )}

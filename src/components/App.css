@@ -46,7 +46,7 @@ h5 {
 
 .about-text p {
   max-width: 550px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }
 
 .about-text ol {
