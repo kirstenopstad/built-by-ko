@@ -11,7 +11,7 @@ const Profile = () => {
       <Container >
         <div className="about">
           <h2 className="section">About</h2>
-          <Row xs={1} md={1} lg={2} className="about-content">
+          <Row xs={1} md={2} lg={2} className="about-content">
             <Bio bio={profileData.background}/>
             <Badge profile={profileData}/>
           </Row>

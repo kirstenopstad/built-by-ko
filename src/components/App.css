@@ -53,15 +53,16 @@ h5 {
   margin-left: 50px;
 }
 
+.about-badge {
+ display: flex;
+ flex-direction: column;
+}
+
 #about-photo img {
-  display: block;
-  width: 100%;
-  margin: auto;
+  border-radius: 50%;
   padding-bottom: 15px;
 }
-.badge {
-  display: flex;
-}
+
 .footer {
   width: 100%;
   background-color: black;
@@ -96,6 +97,17 @@ h5 {
   background-clip: content-box;
   background-position-y: 50%;
   background-position-x: 50%;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  opacity: 70%;
+}
+
+.icons img {
+  width: 2em;
+  margin: .5em .5em 1em .5em;
 }
 
 .list-title {
@@ -139,6 +151,7 @@ h5 {
 }
 
 .section {
+  margin: .5em 0 .5em 0;
   text-transform: uppercase;
   font-weight: 200;
 }
