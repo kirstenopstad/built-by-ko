@@ -26,8 +26,8 @@ function App() {
   // TODO: Make this specific to my UID
   if (auth.currentUser != null) {
     boh = <PortfolioControl />
-  } else {
-    boh = <SignIn />
+  } else if (auth.currentUser == null) {
+    boh = <h1>You must be logged in to update portfolio.</h1>
   }
 
     
