@@ -4,10 +4,13 @@ import Header from '../components/Header'
 import Profile from '../components/Profile'
 import Portfolio from '../components/Portfolio'
 import Container from 'react-bootstrap/Container';
+import SignIn from "./SignIn";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
-  return (
-   <React.Fragment>
+  const site = 
+  <React.Fragment>
     <Header />
     <Container fluid>
       <Profile />
@@ -15,7 +18,15 @@ function App() {
         <Portfolio />
       </div>
     </Container>
-   </React.Fragment>
+
+  </React.Fragment>
+  return (
+    <Router>
+      <Routes>
+      <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/" element={site} />
+      </Routes>
+    </Router>
   );
 }
 
