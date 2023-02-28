@@ -1,6 +1,6 @@
 import React from "react";
 
-const PortfolioControl = () => {
+const UpdatePortfolioControl = () => {
   return(
     <div>
       <h1>Update Portfolio</h1>
@@ -9,4 +9,4 @@ const PortfolioControl = () => {
   )
 }
 
-export default PortfolioControl;
+export default UpdatePortfolioControl;

@@ -3,7 +3,8 @@ import './App.css';
 import Header from '../components/Header'
 import Profile from '../components/Profile'
 import Portfolio from '../components/Portfolio'
-import PortfolioControl from '../components/PortfolioControl'
+// import UpdatePortfolio from '../components/UpdatePortfolio'
+import PortfolioControl from '../components/UpdatePortfolioControl'
 import Container from 'react-bootstrap/Container';
 import SignIn from "./SignIn";
 import { auth } from "./../firebase.js";
@@ -27,7 +28,7 @@ function App() {
   if (auth.currentUser != null) {
     boh = <PortfolioControl />
   } else if (auth.currentUser == null) {
-    boh = <h1>You must be logged in to update portfolio.</h1>
+    boh = <SignIn />
   }
 
     
