@@ -2,6 +2,7 @@
 import spoons from './img/portfolio/spoons.png'
 import about from './img/portfolio/ko-web.png'
 import nightSoup from './img/portfolio/night-soup.png'
+import robogers from './img/portfolio/mr-robogers.png'
 
 const portfolio = {
   1: {
@@ -37,9 +38,20 @@ const portfolio = {
     
     Featuring a hand-drawn illustrations and old school image mapping with new school responsivity. Night Soup features "sounds that freeze well," and is built to invoke vintage aesthetic sensebilities in the spirit of low-fi, alt-folk and independent music.`,
     techUsed: ["HTML", "CSS"],
-    liveLink: `http://nightsoup.com/http://nightsoup.com/`,
+    liveLink: `http://nightsoup.com/`,
     gitLink: `#`,
     image: nightSoup
+  },
+  4: {
+    title: `Mr. Robogers`,
+    tagline: `Meet your robot neighbor`,
+    description: `Mr. Robogers is a website built using Javascript, HTML & CSS.
+
+    Takes a number from a user and returns a list of values from 0 to the user's inputted number with the robot-sounding substitutions.`,
+    techUsed: ["HTML", "CSS"],
+    liveLink: `https://kirstenopstad.github.io/mr-robogers/`,
+    gitLink: `#`,
+    image: robogers
   }
 
 }
