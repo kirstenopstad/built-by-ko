@@ -8,16 +8,18 @@ const AllProjects = ({portfolio}) => {
       <h1>All Projects</h1>
       <Table responsive="sm" bordered="true">
         <thead>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Tech Used</th>
-          <th>Live Link</th>
-          <th>Github Link</th>
-          <th>Image</th>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Tech Used</th>
+            <th>Live Link</th>
+            <th>Github Link</th>
+            <th>Image</th>
+          </tr>
         </thead>
         <tbody>
-          {portfolio.map((project) =>
-          <tr className="boh-row">
+          {portfolio.map((project, index) =>
+          <tr className="boh-row" key={index}>
             <td>{project.title}</td>
             <td>{project.description}</td>
             <td>{project.techUsed}</td>

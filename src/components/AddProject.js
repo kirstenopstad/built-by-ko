@@ -5,7 +5,6 @@ import { auth } from "./../firebase.js";
 import { Link } from "react-router-dom";
 import { db } from "./../firebase"
 
-
 const AddProject = ({addProject}) => {
   const [errorMessage, setErrorMessage] = useState(null);
 

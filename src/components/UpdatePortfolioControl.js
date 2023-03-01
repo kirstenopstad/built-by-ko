@@ -6,6 +6,8 @@ import ProjectDetail from "./ProjectDetail";
 import AddProject from "./AddProject";
 import {db} from './../firebase'
 import { collection, addDoc } from 'firebase/firestore'
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import img from './../img/portfolio/mr-robogers.png'
 
 
 const UpdatePortfolioControl = () => {
