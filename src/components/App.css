@@ -158,4 +158,6 @@ h5 {
 
 .card {
   min-width: 300px;
+  max-height: 600px;
+  overflow: scroll;
 }
