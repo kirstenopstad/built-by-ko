@@ -12,6 +12,7 @@ import img from './../img/portfolio/mr-robogers.png'
 
 const UpdatePortfolioControl = () => {
 
+  
   const handleProjectSubmit = async (project) => {
     const projectCollectionRef = collection(db, "projects");
     await addDoc(projectCollectionRef, project)

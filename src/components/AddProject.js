@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { auth } from "./../firebase.js";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { Link } from "react-router-dom";
 import { db } from "./../firebase"
 
@@ -15,6 +16,13 @@ const AddProject = ({addProject}) => {
       setErrorMessage("You must be logged in to submit a project.")
       // setErrorLink(<Link to="/sign-in">Sign in</Link>)
     } else {
+      const fileType = getFileType(e.target.image.value);
+      const fileName = buildRefFileName(e.target.title.value);
+      const fileRef = addRefFileExt(fileName, fileType);
+      // const metadata = buildMetadata(fileType)
+      const file = document.getElementById("image").files[0] 
+      uploadImage (fileRef, file);
+
       addProject({
         // add values 
         title: e.target.title.value,
@@ -22,7 +30,7 @@ const AddProject = ({addProject}) => {
         techUsed: e.target.techUsed.value,
         liveLink: e.target.liveLink.value,
         gitLink: e.target.gitLink.value,
-        image: e.target.image.value,
+        image: fileRef,
       });
       // nullify fields
         // e.target.title.value = null,
@@ -34,8 +42,46 @@ const AddProject = ({addProject}) => {
       }
     }
   
+    // get '.jpeg'
+    const getFileType = (filename) => {
+      // get index of period
+      const dotIndex = filename.lastIndexOf('.')
+      // get last three characters of file
+      const filetype = filename.slice(dotIndex, filename.length)
+      // return filetype (i.e. '.jpg')
+      return filetype
+    }
 
-  
+    // get 'project-images/projectTitle'
+    const buildRefFileName = (projectTitle) => {
+      const filename = 'project-images/' + projectTitle
+      return filename
+    }
+
+    // compose 'project-images/projectTitle.jpeg'
+    const addRefFileExt = (filename, filetype) => {
+      return filename + filetype
+    }
+    
+    // create metadata
+    const buildMetadata = (fileType) => {
+      const contentType = fileType.slice(1)
+      return { contentType };
+    }
+
+    // create reference file for 'project-images/projectTitle.jpeg' in storage
+    const uploadImage = (refFile, file) => {
+      // Create a root reference
+      const storage = getStorage();
+
+      // Create a ref for the file to upload
+      const projectImageRef = ref(storage, refFile)
+
+      uploadBytes(projectImageRef, file)
+        .then((snapshot) => {
+          console.log('uploaded file!')
+        })
+    }
 
   return(
     <div>
@@ -81,6 +127,7 @@ const AddProject = ({addProject}) => {
         <Form.Label>Image</Form.Label>
         <Form.Control 
         type="file"
+        accept=".jpg, .jpeg, .png"
         name="image"
         placeholder="Image"/>
       </Form.Group>
