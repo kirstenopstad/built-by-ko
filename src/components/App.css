@@ -156,6 +156,19 @@ h5 {
   font-weight: 200;
 }
 
+.boh-row {
+  max-height: 100px;
+  overflow: scroll;
+}
+
+.boh-row td {
+  max-width: 100px;
+  width: auto;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
 .card {
   min-width: 300px;
 }

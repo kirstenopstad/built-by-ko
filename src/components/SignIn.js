@@ -3,6 +3,7 @@ import { auth } from "./../firebase.js";
 import { signInWithEmailAndPassword} from "firebase/auth";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 
 const SignIn = () => {
@@ -23,6 +24,10 @@ const SignIn = () => {
       });
   }
 
+  // conditional for if user is signed in
+  if (auth.currentUser != null) {
+    return(<Link to="/update-portfolio">Update Portfolio</Link>)
+  }
   return(
     <div className="signin">
       <h2>Login</h2>
