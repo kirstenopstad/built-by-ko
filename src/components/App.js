@@ -3,11 +3,16 @@ import './App.css';
 import Header from '../components/Header'
 import Profile from '../components/Profile'
 import Portfolio from '../components/Portfolio'
+import PortfolioControl from '../components/PortfolioControl'
 import Container from 'react-bootstrap/Container';
+import SignIn from "./SignIn";
+import { auth } from "./../firebase.js";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
-  return (
-   <React.Fragment>
+  const site = 
+  <React.Fragment>
     <Header />
     <Container fluid>
       <Profile />
@@ -15,7 +20,26 @@ function App() {
         <Portfolio />
       </div>
     </Container>
-   </React.Fragment>
+  </React.Fragment>
+  let boh = null;
+
+  // TODO: Make this specific to my UID
+  if (auth.currentUser != null) {
+    boh = <PortfolioControl />
+  } else {
+    boh = <SignIn />
+  }
+
+    
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/update-portfolio" element={boh} />
+        <Route path="/" element={site} />
+      </Routes>
+    </Router>
   );
 }
 
