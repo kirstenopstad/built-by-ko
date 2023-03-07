@@ -50,7 +50,7 @@ const Project = ({project}) => {
             <h5>Tech Used</h5>
             <ul>
               {/* TODO: FIX TECH USED SO IT's AN ARRAY */}
-              {/* {techUsed.map((element, index) => <li key={index}>{element}</li>)} */}
+              {techUsed.map((element, index) => <li key={index}>{element}</li>)}
             </ul>
             <a href={liveLink}>Live</a>
             <a href={gitLink}>Git Repo</a>
