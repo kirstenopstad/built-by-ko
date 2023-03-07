@@ -20,9 +20,8 @@ const UpdatePortfolioControl = ({projectList}) => {
     return(
       <div>
         <h1>Update Portfolio</h1>
-        <p>Back-of-house update functionality coming soon.</p>
-        <AllProjects portfolio={portfolio} />
-        <ProjectDetail project={portfolio[0]} />
+        <AllProjects portfolio={projectList} />
+        <ProjectDetail project={projectList[0]} />
         <AddProject addProject={handleProjectSubmit} />
       </div>
     )
