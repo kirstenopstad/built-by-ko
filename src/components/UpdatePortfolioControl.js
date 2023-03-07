@@ -4,29 +4,36 @@ import portfolio from "../portfolioSeedData";
 import AllProjects from "./AllProjects";
 import ProjectDetail from "./ProjectDetail";
 import AddProject from "./AddProject";
-import {db} from './../firebase'
+import {db, auth} from './../firebase'
+import { Link } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
-import { getStorage, ref, uploadBytes } from "firebase/storage";
-import img from './../img/portfolio/mr-robogers.png'
+import { PropTypes } from "prop-types";
 
+const UpdatePortfolioControl = ({projectList}) => {
 
-const UpdatePortfolioControl = () => {
-
-  
   const handleProjectSubmit = async (project) => {
     const projectCollectionRef = collection(db, "projects");
     await addDoc(projectCollectionRef, project)
   }
 
-  return(
-    <div>
-      <h1>Update Portfolio</h1>
-      <p>Back-of-house update functionality coming soon.</p>
-      <AllProjects portfolio={portfolio} />
-      <ProjectDetail project={portfolio[0]} />
-      <AddProject addProject={handleProjectSubmit} />
-    </div>
-  )
+  if (auth.currentUser != null) {
+    return(
+      <div>
+        <h1>Update Portfolio</h1>
+        <p>Back-of-house update functionality coming soon.</p>
+        <AllProjects portfolio={portfolio} />
+        <ProjectDetail project={portfolio[0]} />
+        <AddProject addProject={handleProjectSubmit} />
+      </div>
+    )
+  } else {
+    return (
+      <h2>You must be <Link to="/sign-in">logged in</Link> to update portfolio.</h2>
+    )
+  }
 }
 
+UpdatePortfolioControl.propTypes = {
+  projectList: PropTypes.array
+}
 export default UpdatePortfolioControl;
