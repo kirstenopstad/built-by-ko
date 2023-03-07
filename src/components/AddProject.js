@@ -27,18 +27,20 @@ const AddProject = ({addProject}) => {
         // add values 
         title: e.target.title.value,
         description: e.target.description.value,
+        tagline: e.target.tagline.value,
         techUsed: e.target.techUsed.value,
         liveLink: e.target.liveLink.value,
         gitLink: e.target.gitLink.value,
         image: fileRef,
       });
       // nullify fields
-        // e.target.title.value = null,
-        // e.target.description.value = null,
-        // e.target.techUsed.value = null,
-        // e.target.liveLink.value = null,
-        // e.target.gitLink.value = null,
-        // e.target.image.value = null
+        e.target.title.value = null;
+        e.target.description.value = null;
+        e.target.tagline.value = null;
+        e.target.techUsed.value = null;
+        e.target.liveLink.value = null;
+        e.target.gitLink.value = null;
+        document.getElementById("image").value = null;
       }
     }
   
@@ -62,12 +64,7 @@ const AddProject = ({addProject}) => {
     const addRefFileExt = (filename, filetype) => {
       return filename + filetype
     }
-    
-    // create metadata
-    const buildMetadata = (fileType) => {
-      const contentType = fileType.slice(1)
-      return { contentType };
-    }
+
 
     // create reference file for 'project-images/projectTitle.jpeg' in storage
     const uploadImage = (refFile, file) => {
@@ -95,9 +92,17 @@ const AddProject = ({addProject}) => {
         name="title"
         placeholder="Title"/>
       </Form.Group>
+      <Form.Group className="mb-3" controlId="tagline">
+        <Form.Label>Tagline</Form.Label>
+        <Form.Control 
+        type="text"
+        name="tagline"
+        placeholder="Tagline"/>
+      </Form.Group>
       <Form.Group className="mb-3" controlId="description">
         <Form.Label>Description</Form.Label>
         <Form.Control 
+        as="textarea" rows={3}
         type="text"
         name="description"
         placeholder="Description"/>
