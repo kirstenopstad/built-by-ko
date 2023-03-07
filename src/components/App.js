@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Header from '../components/Header'
 import Profile from '../components/Profile'
@@ -7,48 +7,50 @@ import Portfolio from '../components/Portfolio'
 import UpdatePortfolioControl from '../components/UpdatePortfolioControl'
 import Container from 'react-bootstrap/Container';
 import SignIn from "./SignIn";
-import { auth } from "./../firebase.js";
+import { db, auth } from "./../firebase.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, onSnapshot } from 'firebase/firestore'
+
 
 
 function App() {
-const [imageURL, setImageURL] = useState(null);
-const [imgError, setImageError] = useState(null);
+// state variables
+const [error, setError] = useState(null);
+const [projectList, setProjectList] = useState([]);
 
-// Get a reference to the storage service, which is used to create references in your storage bucket
-const storage = getStorage();
+// GET PROJECTS
+useEffect(() => { 
+  const unSubscribe = onSnapshot(
+    collection(db, "projects"), 
+    (collectionSnapshot) => {
+      const projects = [];
+      collectionSnapshot.forEach((doc) => {
+        projects.push({
+          ...doc.data(),
+          id: doc.id
+        })
+      })
+      setProjectList(projects);
+    }, 
+    (error) => {
+      setError(error.message);
+    }
+  );
+  return () => unSubscribe();
+}, []);
 
-// Create a storage reference from our storage service
-const storageRef = ref(storage);
 
-// Create a child ref
-const imageRef = ref(storage, 'images');
-// imageRef now points to the whole folder 'images'
-
-// Can also take specifc filename 
-// const spaceRef = ref(storage, 'images/space.jpg');
-const testRef = ref(storage, 'project-images/test.jpg');
-// spaceRef now points to "images/space.jpg"
-
-// Get downloard URL for display
-getDownloadURL(testRef)
-  .then((url) => {
-    setImageURL(url)
-  })
-  .catch((error) => {
-    setImageError(error.code)
-  }) 
 
   const site = 
   <React.Fragment>
-    <p>{imgError}</p>
-    <img src={imageURL}/>
     <Header />
     <Container fluid>
       <Profile />
       <div className="portfolio">
-        <Portfolio />
+        <Portfolio 
+          projectList={projectList}
+        />
       </div>
     </Container>
   </React.Fragment>
@@ -58,7 +60,11 @@ getDownloadURL(testRef)
     <Router>
       <Routes>
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/update-portfolio" element={<UpdatePortfolioControl />} />
+        <Route path="/update-portfolio" element={
+          <UpdatePortfolioControl 
+          projectList={projectList}
+          />} 
+        />
         <Route path="/" element={site} />
       </Routes>
     </Router>
