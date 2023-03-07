@@ -4,8 +4,8 @@ import about from './img/portfolio/ko-web.png'
 import nightSoup from './img/portfolio/night-soup.png'
 import robogers from './img/portfolio/mr-robogers.png'
 
-const portfolio = {
-  1: {
+const portfolio = [
+  {
     title: `Spoons`,   
     tagline: `Spoons is a web-based application using JavaScript, Python, and SQL.`,
     description: `Powered by the dynamic spoon counter deducts spoons based on activities user selects, simulating the experience of expending energy throughout the day.
@@ -18,7 +18,7 @@ const portfolio = {
     gitLink: `https://github.com/kirstenopstad/spoons`,
     image: spoons
   },
-  2: {
+  {
     title: "About KO",
     tagline: `About.kirstenopstad.com is a portfolio website built using HTML & CSS.`,
     description: `Built with from scratch in an effort to capture the breadth of my experience as a designer, musician and human being while also practicing skills acquired earning a certificate in Responsive Web Design.
@@ -29,7 +29,7 @@ const portfolio = {
     gitLink: `#`,
     image: about
   },
-  3: {
+  {
     title: `Night Soup`,
     tagline: `A Record Label for a Different Time`,
     description: `Night Soup is a website for a record label built using HTML & CSS.
@@ -42,7 +42,7 @@ const portfolio = {
     gitLink: `#`,
     image: nightSoup
   },
-  4: {
+  {
     title: `Mr. Robogers`,
     tagline: `Meet your robot neighbor`,
     description: `Mr. Robogers is a website built using Javascript, HTML & CSS.
@@ -53,7 +53,6 @@ const portfolio = {
     gitLink: `#`,
     image: robogers
   }
-
-}
+]
 
 export default portfolio;

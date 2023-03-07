@@ -1,18 +1,14 @@
 import React, {useState} from "react";
-import PropTypes from 'prop-types'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
-const Project = ({project}) => {
-  // state variables / hooks
+const ProjectDetail = ({project}) => {
   const [imageURL, setImageURL] = useState(null);
   const [imgError, setImageError] = useState(null);
 
-  // deconstruct prop object
   const {title, tagline, description, techUsed, liveLink, gitLink, image} = project;
-
   // GET IMAGE
   // Get a reference to the storage service, which is used to create references in your storage bucket
   const storage = getStorage();
@@ -33,8 +29,9 @@ const Project = ({project}) => {
       setImageError(error.code)
     }) 
   return(
-    
-    <React.Fragment>
+    <div>
+      <h1>Project Detail</h1>   
+
       <Col className="project">
       <div >
         <Card>
@@ -57,18 +54,9 @@ const Project = ({project}) => {
         </Card>
       </div>
       </Col>
-    </React.Fragment>
-  );
+
+    </div>
+  )
 }
 
-Project.propTypes = {
-  title: PropTypes.string, 
-  tagline: PropTypes.string, 
-  description: PropTypes.string, 
-  techUsed: PropTypes.array, 
-  liveLink: PropTypes.string, 
-  gitLink: PropTypes.string, 
-  image: PropTypes.string
-}
-
-export default Project
+export default ProjectDetail;

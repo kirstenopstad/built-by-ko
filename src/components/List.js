@@ -7,7 +7,7 @@ const List = ({portfolio}) => {
   return(
     <React.Fragment>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {Object.values(portfolio).map(project => 
+        {portfolio.map(project => 
           <Project project={project}
           // TODO: assign projects UUID
           key={project.title}/>
@@ -17,6 +17,6 @@ const List = ({portfolio}) => {
   );
 }
 List.propTypes = {
-  portfolio: PropTypes.object
+  portfolio: PropTypes.array
 }
 export default List
