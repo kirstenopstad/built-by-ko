@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { auth } from "./../firebase.js";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { Link } from "react-router-dom";
-import { db } from "./../firebase"
+import { arrayUnion } from 'firebase/firestore'
 
 const AddProject = ({addProject}) => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -22,13 +21,14 @@ const AddProject = ({addProject}) => {
       // const metadata = buildMetadata(fileType)
       const file = document.getElementById("image").files[0] 
       uploadImage (fileRef, file);
-
+      
+      const techArray = csvToArray(e.target.techUsed.value)
       addProject({
         // add values 
         title: e.target.title.value,
         description: e.target.description.value,
         tagline: e.target.tagline.value,
-        techUsed: e.target.techUsed.value,
+        techUsed: techArray,
         liveLink: e.target.liveLink.value,
         gitLink: e.target.gitLink.value,
         image: fileRef,
@@ -65,7 +65,6 @@ const AddProject = ({addProject}) => {
       return filename + filetype
     }
 
-
     // create reference file for 'project-images/projectTitle.jpeg' in storage
     const uploadImage = (refFile, file) => {
       // Create a root reference
@@ -78,6 +77,16 @@ const AddProject = ({addProject}) => {
         .then((snapshot) => {
           console.log('uploaded file!')
         })
+    }
+
+    // process tech used input
+    const csvToArray = (string) => {
+      const array = string.split(",")
+      let result = []
+      array.forEach((subString) => {
+        result.push(subString.trim())
+      })
+      return result
     }
 
   return(
