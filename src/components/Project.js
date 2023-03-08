@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-
+import Collapse from 'react-bootstrap/Collapse';
+import Button from 'react-bootstrap/Button';
 
 const Project = ({project}) => {
   // state variables / hooks
   const [imageURL, setImageURL] = useState(null);
   const [imgError, setImageError] = useState(null);
+  const [open, setOpen] = useState(false);
 
   // deconstruct prop object
   const {title, tagline, description, techUsed, liveLink, gitLink, image} = project;
@@ -33,27 +35,41 @@ const Project = ({project}) => {
       setImageError(error.code)
     }) 
   return(
-    
     <React.Fragment>
       <Col className="project">
-      <div >
-        <Card>
-          <Card.Img variant="top" src={imageURL} alt={title} />
-          <Card.Body>
-          <Card.Title>
-            <h4>{title}</h4>
-            <h5>{tagline}</h5>
-          </Card.Title> 
-          <Card.Text className="project-summary">
-            {description}
-          </Card.Text>
-            <h5>Tech Used</h5>
-            <ul>
-              {techUsed.map((element, index) => <li key={index}>{element}</li>)}
-            </ul>
-            <a href={liveLink}>Live</a>
-            <a href={gitLink}>Git Repo</a>
-          </Card.Body>
+      <div>
+        <Card className="text-white">
+          <Card.Img className="mask-img" variant="top" src={imageURL} alt={title}/>
+          <Card.ImgOverlay>
+            {/* <div className="mask"> */}
+            <Card.Title>
+              <h4>{title}</h4>
+              <h5>{tagline}</h5>
+            </Card.Title> 
+            <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="collapse-project-detaials"
+                aria-expanded={open}
+                variant="outline-light">
+                Read More
+              </Button>
+              <div className="project-links">
+                <Button variant="outline-light" size="sm" as="a" href={liveLink}>Live</Button>
+                <Button variant="outline-light" size="sm" as="a" href={gitLink}>GitHub</Button>
+              </div>
+            {/* </div> */}
+          </Card.ImgOverlay>
+              <Collapse in={open}>
+                <div className="project-details" id="collapse-project-detaials">
+                  <Card.Text>
+                    {description}
+                  </Card.Text>
+                  <h5>Tech Used</h5>
+                  <ul>
+                    {techUsed.map((element, index) => <li key={index}>{element}</li>)}
+                  </ul>
+                </div>
+              </Collapse>
         </Card>
       </div>
       </Col>
