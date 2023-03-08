@@ -38,6 +38,7 @@ h5 {
 .about-badge img {
   max-width: 250px;
 }
+
 .about-badge-lists {
   display: flex;
   flex-direction: column;
@@ -67,6 +68,17 @@ h5 {
 #about-photo img {
   border-radius: 50%;
   padding-bottom: 15px;
+}
+
+.about-bio-list {
+  /* background-color: azure; */
+  margin-bottom: 5px;
+  padding: 5px 20px 0px 15px ;
+  width: fit-content;
+  border-radius: 3%;
+  border-style: dotted;
+  border-color: black;
+
 }
 
 .footer {

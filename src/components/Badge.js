@@ -20,18 +20,18 @@ const Badge = ({ profile }) => {
           </div>
           <div className="about-badge-lists">
             <Col>
-              Interests
-              <ul> 
-                {interests.map((element, index) => <li key={index}>{element}</li>)}
-              </ul>
+            <div className="about-bio-list">
               Hobbies
               <ul> 
                 {hobbies.map((element, index) => <li key={index}>{element}</li>)}
               </ul>
+            </div>
+            <div className="about-bio-list">
               Skills
               <ul> 
                 {skills.map((element, index) => <li key={index}>{element}</li>)}
               </ul>
+            </div>
             </Col>
           </div>
         </div>
