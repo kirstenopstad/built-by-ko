@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 const List = ({portfolio}) => {
   return(
     <React.Fragment>
-      <Row xs={1} md={1} lg={2} className="g-4">
+      <Row xs={1} md={2} lg={2} className="g-4">
         {portfolio.map(project => 
           <Project project={project}
           // TODO: assign projects UUID
