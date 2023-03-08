@@ -53,6 +53,10 @@ const Project = ({project}) => {
                 variant="outline-light">
                 Read More
               </Button>
+              <div className="project-links">
+                <Button variant="outline-light" size="sm" as="a" href={liveLink}>Live</Button>
+                <Button variant="outline-light" size="sm" as="a" href={gitLink}>GitHub</Button>
+              </div>
             {/* </div> */}
           </Card.ImgOverlay>
               <Collapse in={open}>
@@ -64,8 +68,6 @@ const Project = ({project}) => {
                   <ul>
                     {techUsed.map((element, index) => <li key={index}>{element}</li>)}
                   </ul>
-                  <a href={liveLink}>Live</a>
-                  <a href={gitLink}>Git Repo</a>
                 </div>
               </Collapse>
         </Card>
