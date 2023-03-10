@@ -41,7 +41,6 @@ const Project = ({project}) => {
         <Card className="text-white">
           <Card.Img className="mask-img" variant="top" src={imageURL} alt={title}/>
           <Card.ImgOverlay>
-            {/* <div className="mask"> */}
             <Card.Title>
               <h4>{title}</h4>
               <h5>{tagline}</h5>
@@ -57,7 +56,6 @@ const Project = ({project}) => {
                 <Button variant="outline-light" size="sm" as="a" href={liveLink}>Live</Button>
                 <Button variant="outline-light" size="sm" as="a" href={gitLink}>GitHub</Button>
               </div>
-            {/* </div> */}
           </Card.ImgOverlay>
               <Collapse in={open}>
                 <div className="project-details" id="collapse-project-detaials">
