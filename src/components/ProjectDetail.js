@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import closeIcon from  "./../img/icons/x-lg.svg"
+import PropTypes from "prop-types";
 
 
-const ProjectDetail = ({project}) => {
+const ProjectDetail = ({project, handleCloseClick}) => {
   const [imageURL, setImageURL] = useState(null);
   const [imgError, setImageError] = useState(null);
 
@@ -30,7 +32,10 @@ const ProjectDetail = ({project}) => {
     }) 
   return(
     <div>
-      <h1>Project Detail</h1>   
+      <div className="d-flex">
+        <h1>Project Detail</h1>   
+        <img src={closeIcon} onClick={handleCloseClick}/>
+      </div>
 
       <Col className="project">
       <div >
@@ -57,6 +62,11 @@ const ProjectDetail = ({project}) => {
 
     </div>
   )
+}
+
+ProjectDetail.propTypes = {
+  project: PropTypes.object,
+  handleCloseClick: PropTypes.func
 }
 
 export default ProjectDetail;

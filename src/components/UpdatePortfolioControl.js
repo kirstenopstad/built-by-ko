@@ -22,18 +22,26 @@ const UpdatePortfolioControl = ({projectList}) => {
     setShowAddForm(true);
   }
 
+  const handleEditProjectClick = (id) => {
+    const selectedProject = projectList.filter(p => p.id === id)[0];
+    setSelectedProject(selectedProject);
+  }
+
   const handleCloseClick = () => {
     setShowAddForm(false);
+    setSelectedProject(null);
   }
 
   // conditional rendering logic
   let content = <AllProjects 
                   portfolio={projectList} 
                   handleAddProjectClick={handleAddProjectClick}
+                  handleEditProjectClick={handleEditProjectClick}
                   />
   if (selectedProject) {
     content = <ProjectDetail 
                 project={selectedProject} 
+                handleCloseClick={handleCloseClick}
                 />
   } else if (showAddForm) {
     content = <AddProject 
