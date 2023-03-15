@@ -6,7 +6,7 @@ import ProjectDetail from "./ProjectDetail";
 import AddProject from "./AddProject";
 import {db, auth} from './../firebase'
 import { Link } from 'react-router-dom'
-import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore'
 import { PropTypes } from "prop-types";
 
 const UpdatePortfolioControl = ({projectList}) => {
@@ -23,6 +23,12 @@ const UpdatePortfolioControl = ({projectList}) => {
   const handleDeleteProject = async (project) => {
     const projectDocRef = doc(db, "projects", project.id);
     await deleteDoc(projectDocRef)
+  }
+
+  const handleUpdateProject = async (project) => {
+    const projectRef = doc(db, "projects", project.id);
+    await updateDoc(projectRef, project);
+    setSelectedProject(project)
   }
 
   const handleAddProjectClick = () => {
@@ -51,6 +57,7 @@ const UpdatePortfolioControl = ({projectList}) => {
     content = <ProjectDetail 
                 project={selectedProject} 
                 handleCloseClick={handleCloseClick}
+                updateProject={handleUpdateProject}
                 />
   } else if (showAddForm) {
     content = <AddProject 
