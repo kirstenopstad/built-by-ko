@@ -1,5 +1,5 @@
-import React from "react";
-import Table from 'react-bootstrap/Table';
+import React, {useState} from "react";
+import Container from 'react-bootstrap/Container';
 import portfolio from "../portfolioSeedData";
 import AllProjects from "./AllProjects";
 import ProjectDetail from "./ProjectDetail";
@@ -10,20 +10,45 @@ import { collection, addDoc } from 'firebase/firestore'
 import { PropTypes } from "prop-types";
 
 const UpdatePortfolioControl = ({projectList}) => {
+  const[selectedProject, setSelectedProject] = useState(null)
+  const[showAddForm, setShowAddForm] = useState(false)
 
   const handleProjectSubmit = async (project) => {
     const projectCollectionRef = collection(db, "projects");
     await addDoc(projectCollectionRef, project)
   }
 
+  const handleAddProjectClick = () => {
+    setShowAddForm(true);
+  }
+
+  const handleCloseClick = () => {
+    setShowAddForm(false);
+  }
+
+  // conditional rendering logic
+  let content = <AllProjects 
+                  portfolio={projectList} 
+                  handleAddProjectClick={handleAddProjectClick}
+                  />
+  if (selectedProject) {
+    content = <ProjectDetail 
+                project={selectedProject} 
+                />
+  } else if (showAddForm) {
+    content = <AddProject 
+                addProject={handleProjectSubmit} 
+                handleCloseClick={handleCloseClick}
+                />
+  }
   if (auth.currentUser != null) {
     return(
-      <div>
-        <h1>Update Portfolio</h1>
-        <AllProjects portfolio={projectList} />
-        <ProjectDetail project={projectList[0]} />
-        <AddProject addProject={handleProjectSubmit} />
-      </div>
+      <Container>
+        <div>
+          <h1>Update Portfolio</h1>
+          {content}
+        </div>
+      </Container>
     )
   } else {
     return (

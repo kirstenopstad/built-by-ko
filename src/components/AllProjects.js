@@ -1,8 +1,8 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
-
-const AllProjects = ({portfolio}) => {
+const AllProjects = ({portfolio, handleAddProjectClick}) => {
   return(
     <div>
       <h1>All Projects</h1>
@@ -10,26 +10,22 @@ const AllProjects = ({portfolio}) => {
         <thead>
           <tr>
             <th>Title</th>
-            <th>Description</th>
-            <th>Tech Used</th>
-            <th>Live Link</th>
-            <th>Github Link</th>
-            <th>Image</th>
+            <th>Tagline</th>
+            <th>Manage</th>
           </tr>
         </thead>
         <tbody>
           {portfolio.map((project, index) =>
           <tr className="boh-row" key={index}>
             <td>{project.title}</td>
-            <td>{project.description}</td>
-            <td>{project.techUsed}</td>
-            <td>{project.liveLink}</td>
-            <td>{project.gitLink}</td>
-            <td>{project.image}</td>
+            <td>{project.tagline}</td>
+            {/* TODO: make these real buttons */}
+            <td>Edit | Delete</td>
           </tr>
         )}
         </tbody>
       </Table>
+      <Button onClick={handleAddProjectClick} >Add Project</Button>
     </div>
   )
 }
