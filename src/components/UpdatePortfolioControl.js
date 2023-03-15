@@ -15,7 +15,9 @@ const UpdatePortfolioControl = ({projectList}) => {
 
   const handleProjectSubmit = async (project) => {
     const projectCollectionRef = collection(db, "projects");
-    await addDoc(projectCollectionRef, project)
+    await addDoc(projectCollectionRef, project);
+    setShowAddForm(false);
+    setSelectedProject(project);
   }
   
   const handleDeleteProject = async (project) => {
