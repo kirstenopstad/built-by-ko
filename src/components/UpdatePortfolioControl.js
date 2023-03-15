@@ -6,7 +6,7 @@ import ProjectDetail from "./ProjectDetail";
 import AddProject from "./AddProject";
 import {db, auth} from './../firebase'
 import { Link } from 'react-router-dom'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore'
 import { PropTypes } from "prop-types";
 
 const UpdatePortfolioControl = ({projectList}) => {
@@ -16,6 +16,11 @@ const UpdatePortfolioControl = ({projectList}) => {
   const handleProjectSubmit = async (project) => {
     const projectCollectionRef = collection(db, "projects");
     await addDoc(projectCollectionRef, project)
+  }
+  
+  const handleDeleteProject = async (project) => {
+    const projectDocRef = doc(db, "projects", project.id);
+    await deleteDoc(projectDocRef)
   }
 
   const handleAddProjectClick = () => {
@@ -32,11 +37,13 @@ const UpdatePortfolioControl = ({projectList}) => {
     setSelectedProject(null);
   }
 
+
   // conditional rendering logic
   let content = <AllProjects 
                   portfolio={projectList} 
                   handleAddProjectClick={handleAddProjectClick}
                   handleEditProjectClick={handleEditProjectClick}
+                  handleDeleteProject={handleDeleteProject}
                   />
   if (selectedProject) {
     content = <ProjectDetail 

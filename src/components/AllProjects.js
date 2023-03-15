@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-const AllProjects = ({portfolio, handleAddProjectClick, handleEditProjectClick}) => {
+const AllProjects = ({portfolio, handleAddProjectClick, handleEditProjectClick, handleDeleteProject}) => {
   return(
     <div>
       <h1>All Projects</h1>
@@ -22,13 +22,15 @@ const AllProjects = ({portfolio, handleAddProjectClick, handleEditProjectClick})
             <td>{project.tagline}</td>
             {/* TODO: make these real buttons */}
             <td>
-              <Button onClick={() => handleEditProjectClick(project.id)}>Edit</Button> | Delete
+              <Button onClick={() => handleEditProjectClick(project.id)} variant="outline-success">Edit</Button>
+              {' '}
+              <Button onClick={() => handleDeleteProject(project)} variant="outline-danger">Delete</Button>
             </td>
           </tr>
         )}
         </tbody>
       </Table>
-      <Button onClick={handleAddProjectClick} >Add Project</Button>
+      <Button onClick={handleAddProjectClick} variant="success">Add Project</Button>
     </div>
   )
 }
@@ -37,6 +39,7 @@ AllProjects.propTypes = {
   portfolio: PropTypes.array,
   handleAddProjectClick: PropTypes.func,
   handleEditProjectClick: PropTypes.func,
+  handleDeleteProject: PropTypes.func,
 }
 
 export default AllProjects;
