@@ -3,9 +3,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { auth } from "./../firebase.js";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import closeIcon from  "./../img/icons/x-lg.svg"
 import { arrayUnion } from 'firebase/firestore'
 
-const AddProject = ({addProject}) => {
+const AddProject = ({addProject, handleCloseClick}) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleProjectSubmission = (e) => {
@@ -91,7 +92,10 @@ const AddProject = ({addProject}) => {
 
   return(
     <div>
-      <h1>Add Project</h1>
+      <div className="d-flex">
+        <h1>Add Project</h1>
+        <img src={closeIcon} onClick={handleCloseClick}/>
+      </div>
       {errorMessage}
       <Form onSubmit={handleProjectSubmission}>
       <Form.Group className="mb-3" controlId="title">
