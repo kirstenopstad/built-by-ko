@@ -133,11 +133,11 @@ const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
 
   return(
     <div>
-      <div className="d-flex">
-        <h1>Project Detail</h1>   
+      <div className="update-project-header">
+        <h2>Project Detail</h2>   
         <img src={closeIcon} onClick={handleCloseClick}/>
       </div>
-      <Row>
+      <Row xs={1} md={2}>
         <Col>
           <Project project={project}/>
         </Col>
