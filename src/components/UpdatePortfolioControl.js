@@ -8,6 +8,7 @@ import {db, auth} from './../firebase'
 import { Link } from 'react-router-dom'
 import { collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore'
 import { PropTypes } from "prop-types";
+import SignIn from "./SignIn";
 
 const UpdatePortfolioControl = ({projectList}) => {
   const[selectedProject, setSelectedProject] = useState(null)
@@ -65,6 +66,7 @@ const UpdatePortfolioControl = ({projectList}) => {
                 handleCloseClick={handleCloseClick}
                 />
   }
+  
   if (auth.currentUser != null) {
     return(
       <Container>
@@ -76,7 +78,8 @@ const UpdatePortfolioControl = ({projectList}) => {
     )
   } else {
     return (
-      <h2>You must be <Link to="/sign-in">logged in</Link> to update portfolio.</h2>
+      <SignIn />
+      // <h2>You must be <Link to="/sign-in">logged in</Link> to update portfolio.</h2>
     )
   }
 }
