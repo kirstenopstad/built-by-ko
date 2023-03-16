@@ -1,8 +1,10 @@
-# Built by KO
+# [Built by KO](https://built-by-ko.web.app/)
 
 #### By Kirsten Opstad
 
 #### A portfolio rebuild in React
+
+***
 
 ## Technologies Used
 
@@ -13,6 +15,7 @@
 * CSS
 * webpack
 * Node.js
+* Firebase
 
 ## Description
 
@@ -38,6 +41,7 @@ Rebuild portfolio (week one project) in React. Include functionality to view por
   * Local State to display either list or detail
 5. Style to match
 [![Mock Up](./src/img/mock_up.png)](https://www.figma.com/file/Vl9pSCKAJ8mXBxthevwSS5/Portfolio-(React)?node-id=0%3A1&t=TNBLDLPmGXTXCq06-1)
+![Mock Up](./src/img/mock_up_admin.png)
 
 <!-- [x] Screenshots
 
@@ -46,9 +50,10 @@ Rebuild portfolio (week one project) in React. Include functionality to view por
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
 ### Goals
-1. Migrate vanilla js portfolio to React
-2. Add responsive styling to match mockup
+1. ✅ Migrate vanilla js portfolio to React
+2. ✅ Add responsive styling to match mockup
 3. Implement dynamic UI with list & detail components
+4. ✅ Create password protected admin area to add, update & delete projects
 
 ## Setup/Installation Requirements
 
