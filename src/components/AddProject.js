@@ -92,8 +92,8 @@ const AddProject = ({addProject, handleCloseClick}) => {
 
   return(
     <div>
-      <div className="d-flex">
-        <h1>Add Project</h1>
+      <div className="update-project-header">
+        <h2>Add Project</h2>
         <img src={closeIcon} onClick={handleCloseClick}/>
       </div>
       {errorMessage}
