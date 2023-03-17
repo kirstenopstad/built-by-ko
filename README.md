@@ -2,9 +2,19 @@
 
 #### By Kirsten Opstad
 
-#### A portfolio rebuild in React
+#### A web app portfolio rebuild in React
 
 ***
+
+![KO](./src/img/screenshot.png)
+*Screenshot of the portfolio full screen image header featuring a self-portrait on me sitting on my yellow couch.*
+***
+
+## Description
+
+A React rebuild of the HTML & CSS static portfolio site built week one of Epicodus. The purpose of this project is to level-up my portfolio and to showcase skills & projects built at Epicodus.
+
+*** 
 
 ## Technologies Used
 
@@ -16,44 +26,82 @@
 * webpack
 * Node.js
 * Firebase
+* Azure
 
-## Description
+***
 
-Rebuild portfolio (week one project) in React. Include functionality to view portfolio projects as list or detail.
+## Objectives (MVP)
+<!-- ✅ -->
+The application should have the following functionality:
+* ✅ Mimic layout and styling of [basic HTML & CSS static portfolio](https://kirstenopstad.github.io/portfolio/)
+* ✅ Improve styling to responsively display multiple project cards handsomely
+* ✅ Store project data & photos in remote database (Firebase)
+* ✅ Allow read functionality for all users and write functionality for a single authorized administrator
+* ✅ Administrator is be able to add, update, & delete projects from a "back of house" portal
+* ✅ Site is deployed and portfolio can be updated from the browser (by admin only)
 
-<!-- ### Objectives (MVP) -->
+
+
+***
 
 ## Process 
-1. Create component drawing
+### Component Diagram
 [![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/Vl9pSCKAJ8mXBxthevwSS5/Portfolio-(React)?node-id=0%3A1&t=TNBLDLPmGXTXCq06-1)
-2. Establish Component Hierarchy:
-    * App.js
-      * Header.js 
-      * Profile.js 
-        * Bio.js 
-        * Badge.js 
-      * Portfolio.js 
-        * List.js 
-          * Project.js 
-        * Detail.js 
-3. Build Static Components
-4. Add State
-  * Local State to display either list or detail
-5. Style to match
+### Mockup
 [![Mock Up](./src/img/mock_up.png)](https://www.figma.com/file/Vl9pSCKAJ8mXBxthevwSS5/Portfolio-(React)?node-id=0%3A1&t=TNBLDLPmGXTXCq06-1)
+### Mockup (Admin Area)
 ![Mock Up](./src/img/mock_up_admin.png)
+***
 
-<!-- [x] Screenshots
+### Implementation
+1. ✅ Create component drawing
+2. ✅ Establish Component Hierarchy
+3. ✅ Build Static Components
+4. ✅ Add State
+5. ✅ Style to match
+6. ✅ Add Firebase
+7. ✅ Add Firebase Authentication, Authorization & Security Rules
+8. ✅ Add Firebase Cloud storage for images
+9. ✅ Build UI for Admin components
 
-![Screenshots](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.03bZmDGXaBhBYyxxp3Ls3gHaEA%26pid%3DApi&f=1&ipt=e980d57210242747a51c41421e1f09a6de3b1fdaeaadd297496787bb64e80c88&ipo=images) -->
-
-<!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
+*** 
 
 ### Goals
 1. ✅ Migrate vanilla js portfolio to React
 2. ✅ Add responsive styling to match mockup
-3. Implement dynamic UI with list & detail components
+3. ✅ Implement dynamic UI for viewing project details
 4. ✅ Create password protected admin area to add, update & delete projects
+
+### Stretch Goals (Future Features)
+1. Visitors can sort projects by technology (i.e. "JavaScript" or "C#" or "Python")
+2. 📌 GitHub Actions-facilitated CI/CD
+3. 📌 Includes all Epicodus independent projects (see Content Progress Log below)
+
+### Content Progress Log
+
+
+  |Week |Project Title|Progress |
+  |---|---|---|
+  |1|Dev Portfolio | |
+  |2|Language Selector Quiz |✅|
+  |3|Mr. Robogers | |
+  |5|Currency Exchange | |
+  |4|Pizza Planet | |
+  |6|Space Ages | |
+  |7|Diabetes Diagnostic Device | |
+  |8|Bakery (console) | |
+  |9|Vendor Order | |
+  |10|Salon | |
+  |11|Factory | |
+  |12|Bakery Treats | |
+  |13|Parks API | |
+  |14|Search Coach | |
+  |15|Functional Programming (Coin Counter?) | |
+  |16|Coffee Distributor | |
+  |17|Built By KO |✅|
+  |18|MoFA |✅|
+
+***
 
 ## Setup/Installation Requirements
 
@@ -67,14 +115,16 @@ $ npm install
 ```
 $ npm run start
 ```
+*NOTE: Currently, installation doesn't include instructions for connecting to Firebase, which is a large part (the whole back end!) of this project. Firebase credentialing and plumbing instructions to come.*
 
+***
 ## Known Bugs
 
 * No known bugs. If you find one, please email me at kirsten.opstad@gmail.com with the subject **[_Repo Name_] Bug** and include:
   * BUG: _A brief description of the bug_
   * FIX: _Suggestion for solution (if you have one!)_
   * If you'd like to be credited, please also include your **_github user profile link_**
-
+***
 ## License
 
 MIT License
