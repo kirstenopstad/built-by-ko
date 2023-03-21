@@ -74,7 +74,7 @@ The application should have the following functionality:
 
 ### Stretch Goals (Future Features)
 1. Visitors can sort projects by technology (i.e. "JavaScript" or "C#" or "Python")
-2. 📌 GitHub Actions-facilitated CI/CD
+2. ✅ GitHub Actions-facilitated CI/CD
 3. 📌 Includes all Epicodus independent projects (see Content Progress Log below)
 
 ### Content Progress Log
