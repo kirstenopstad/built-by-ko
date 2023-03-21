@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 const Project = ({project}) => {
   // state variables / hooks
   const [imageURL, setImageURL] = useState(null);
-  const [imgError, setImageError] = useState(null);
+  const [imageError, setImageError] = useState(null);
   const [open, setOpen] = useState(false);
 
   // deconstruct prop object
@@ -20,7 +20,7 @@ const Project = ({project}) => {
   const storage = getStorage();
 
   // Create a storage reference from our storage service
-  const storageRef = ref(storage);
+  // const storageRef = ref(storage);
 
   // const spaceRef = ref(storage, 'images/space.jpg');
   const imgRef = ref(storage, `${image}`);
@@ -40,6 +40,7 @@ const Project = ({project}) => {
       <div>
         <Card className="text-white">
           <Card.Img className="mask-img" variant="top" src={imageURL} alt={title}/>
+          {imageError}
           <Card.ImgOverlay>
             <Card.Title>
               <h4>{title}</h4>

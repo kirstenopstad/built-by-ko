@@ -3,21 +3,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { db, auth } from "./../firebase.js";
+import { auth } from "./../firebase.js";
 import { getStorage, ref, getDownloadURL, uploadBytes } from "firebase/storage";
-import { doc, updateDoc } from 'firebase/firestore'
-
 import closeIcon from  "./../img/icons/x-lg.svg"
 import PropTypes from "prop-types";
 import Project from "./Project"
-import AddProject from "./AddProject";
 
 
 const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
-  const [projectDetails, setProjectDetails] = useState(null)
   const [imageURL, setImageURL] = useState(null);
-  const [imgError, setImageError] = useState(null);
-  const [Error, setError] = useState(null);
+  const [imageError, setImageError] = useState(null);
+  const [error, setError] = useState(null);
 
   const {title, tagline, description, techUsed, liveLink, gitLink, image, id} = project;
   // GET IMAGE
@@ -25,7 +21,7 @@ const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
   const storage = getStorage();
 
   // Create a storage reference from our storage service
-  const storageRef = ref(storage);
+  // const storageRef = ref(storage);
 
   // const spaceRef = ref(storage, 'images/space.jpg');
   const imgRef = ref(storage, `${image}`);
@@ -135,7 +131,7 @@ const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
     <div>
       <div className="update-project-header">
         <h2>Project Detail</h2>   
-        <img src={closeIcon} onClick={handleCloseClick}/>
+        <img src={closeIcon} onClick={handleCloseClick} alt="close icon"/>
       </div>
       <Row xs={1} md={2}>
         <Col>
@@ -188,6 +184,9 @@ const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="image">
               <Form.Label>Image</Form.Label>
+              {imageError}
+              {console.log(error)}
+              {console.log(imageURL)}
               <Form.Control 
               type="file"
               accept=".jpg, .jpeg, .png"

@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import { auth } from "./../firebase.js";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import closeIcon from  "./../img/icons/x-lg.svg"
-import { arrayUnion } from 'firebase/firestore'
 
 const AddProject = ({addProject, handleCloseClick}) => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -94,7 +93,7 @@ const AddProject = ({addProject, handleCloseClick}) => {
     <div>
       <div className="update-project-header">
         <h2>Add Project</h2>
-        <img src={closeIcon} onClick={handleCloseClick}/>
+        <img src={closeIcon} onClick={handleCloseClick} alt="close icon"/>
       </div>
       {errorMessage}
       <Form onSubmit={handleProjectSubmission}>

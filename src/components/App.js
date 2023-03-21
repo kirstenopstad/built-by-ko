@@ -7,10 +7,10 @@ import Portfolio from '../components/Portfolio'
 import UpdatePortfolioControl from '../components/UpdatePortfolioControl'
 import Container from 'react-bootstrap/Container';
 import SignIn from "./SignIn";
-import { db, auth } from "./../firebase.js";
+import { db } from "./../firebase.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { collection, addDoc, onSnapshot } from 'firebase/firestore'
+// import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { collection, onSnapshot } from 'firebase/firestore'
 
 
 
@@ -48,6 +48,7 @@ useEffect(() => {
     <Container fluid>
       <Profile />
       <div className="portfolio">
+        {error}
         <Portfolio 
           projectList={projectList}
         />

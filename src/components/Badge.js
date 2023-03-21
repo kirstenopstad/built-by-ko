@@ -2,7 +2,7 @@ import React from "react";
 import Col from 'react-bootstrap/Col';
 
 const Badge = ({ profile }) => {
-  const { image, interests, hobbies, skills, links } = profile
+  const { image, hobbies, skills, links } = profile
   const linksList = Object.keys(links)
   return(
     <React.Fragment>
