@@ -1,6 +1,5 @@
 import React from "react";
 import List from '../components/List'
-import portfolioData from '../portfolioSeedData'
 import { PropTypes } from "prop-types";
 
 

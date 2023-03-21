@@ -8,8 +8,21 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: npm run build
+    # get repo
+      - name: Checkout
+        uses: actions/checkout@v3
+    # setup node environment on runner
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.x
+          cache: npm
+    # intstall dependencies for build
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

@@ -1,11 +1,9 @@
 import React, {useState} from "react";
 import Container from 'react-bootstrap/Container';
-import portfolio from "../portfolioSeedData";
 import AllProjects from "./AllProjects";
 import ProjectDetail from "./ProjectDetail";
 import AddProject from "./AddProject";
 import {db, auth} from './../firebase'
-import { Link } from 'react-router-dom'
 import { collection, addDoc, deleteDoc, doc, updateDoc } from 'firebase/firestore'
 import { PropTypes } from "prop-types";
 import SignIn from "./SignIn";
