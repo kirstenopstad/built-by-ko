@@ -11,7 +11,7 @@ const Portfolio = ({projectList}) => {
   // const [showDotNet, setShowDotNet] = useState(false);
   // const [showPython, setShowPython] = useState(false);
   const [techSelected, setTechSelected] = useState([])
-  const [filteredProjects, setFilteredProjects] = useState([])
+  // const [filteredProjects, setFilteredProjects] = useState([])
 
   // TECH
   const jS =  "JavaScript";
@@ -33,14 +33,16 @@ const Portfolio = ({projectList}) => {
   const JSButtonVariant = showJavaScript ? "secondary" : "outline-secondary";
   let ReactButtonVariant = showReact ? "secondary" : "outline-secondary";
   
-  // modify techSelected
-  useEffect(() => {
+  // modify techSelected if js show = true
+
+  // move out of useEffect
+  const handleJs = () => {
     if (showJavaScript) {
-      // add js to techSelected
-      const techList = [...techSelected, jS];
-      console.log(techList)
-      setTechSelected(techList);
+       // add js to techSelected
+       const techList = [...techSelected, jS];
+       setTechSelected(techList);
     } else {
+      // if in techSelected, remove it
       const index = techSelected.indexOf(jS);
       if (index >= 0) {
         const techList = [...techSelected];
@@ -48,33 +50,54 @@ const Portfolio = ({projectList}) => {
         setTechSelected(techList);
       }
     }
-  }, [showJavaScript])
- 
-  useEffect(() => {
-    if (showReact) {
-      // add js to techSelected
-      const techList = [...techSelected, react];
-      console.log(techList)
-      setTechSelected(techList);
-    } else {
-      const index = techSelected.indexOf(react);
-      if (index >= 0) {
-        const techList = [...techSelected];
-        techList.splice(index, 1)
-        setTechSelected(techList);
-      }
-    }
-  }, [showReact])
+  }
 
-  // conditional filtering
-  useEffect(() => { 
-    let filteredProjs = [];
-    techSelected.forEach((tech) => {
-      // copy in projects from previous step + add new tech
-      filteredProjs = [...filteredProjs, projectList.filter(p => p.techUsed.includes(tech))]
-    })
-    setFilteredProjects(filteredProjs)
-  }, [techSelected])
+  const tech = () => {
+
+  }
+
+  // useEffect(() => {
+  //   if (showJavaScript) {
+  //     // add js to techSelected
+  //     const techList = [...techSelected, jS];
+  //     console.log(techList)
+  //     setTechSelected(techList);
+  //   } else {
+  //     const index = techSelected.indexOf(jS);
+  //     if (index >= 0) {
+  //       const techList = [...techSelected];
+  //       techList.splice(index, 1)
+  //       setTechSelected(techList);
+  //     }
+  //   }
+  // }, [showJavaScript, techSelected])
+  
+  // // modify techSelected if react show = true
+  // useEffect(() => {
+  //   if (showReact) {
+  //     // add react to techSelected
+  //     const techList = [...techSelected, react];
+  //     console.log(techList)
+  //     setTechSelected(techList);
+  //   } else {
+  //     const index = techSelected.indexOf(react);
+  //     if (index >= 0) {
+  //       const techList = [...techSelected];
+  //       techList.splice(index, 1)
+  //       setTechSelected(techList);
+  //     }
+  //   }
+  // }, [showReact, techSelected])
+
+  // conditional filtering if techSelected changes
+  // useEffect(() => { 
+  //   let filteredProjs = [];
+  //   techSelected.forEach((tech) => {
+  //     // copy in projects from previous step + add new tech
+  //     filteredProjs = [...filteredProjs, projectList.filter(p => p.techUsed.includes(tech))]
+  //   })
+  //   setFilteredProjects(filteredProjs)
+  // }, [techSelected])
 
   // if anything is selected, filter from 
   // let filteredProjects = [];
@@ -85,11 +108,24 @@ const Portfolio = ({projectList}) => {
   //   })
   // }
 
-  // conditionally render project lists
-  let projList = <List portfolio={projectList}/>;
-  if (filteredProjects.length > 0) {
-    projList = <List portfolio={filteredProjects}/>
-  }
+  // conditionally filter project list
+  // let filteredProjects = [];
+  // if (showJavaScript) {
+  //   filteredProjects = [...filteredProjects, projectList.filter(p => p.techUsed.includes(jS))]
+  // } 
+  // if (showReact) {
+
+  // }
+
+  // conditionally display either filtered or non-filtered project list
+  // if (techSelected.length > 0) {
+  //   techSelected.forEach((tech) => {
+  //     // filter out
+  //     projectList = projectList.filter(p => p.techUsed.includes(tech))
+  //   })   
+  // }
+
+
   return(
     <React.Fragment>
         <h2 className="section">Portfolio</h2>
@@ -98,8 +134,8 @@ const Portfolio = ({projectList}) => {
         <Button variant="outline-secondary" size="sm">.Net</Button>
         <Button variant="outline-secondary" size="sm">Python</Button>
         {' '}
+        <List portfolio={projectList}/>
         {/* <List portfolio={filteredProjects}/> */}
-        {projList}
       {/* <Detail /> */}
     </React.Fragment>
   );
