@@ -93,7 +93,7 @@ The application should have the following functionality:
   |9|Vendor Order | |
   |10|Salon | |
   |11|Factory | |
-  |12|Bakery Treats | |
+  |12|Bakery Treats |✅|
   |13|Parks API | |
   |14|Search Coach | |
   |15|Functional Programming (Coin Counter?) | |
@@ -120,7 +120,8 @@ $ npm run start
 ***
 ## Known Bugs
 
-* No known bugs. If you find one, please email me at kirsten.opstad@gmail.com with the subject **[_Repo Name_] Bug** and include:
+* Update portfolio > Update project functionality > BUG: when new image is uploaded, it doesn't add project title to image reference filename ('project-images/.png' instead of 'project-images/Bakery.png)
+* If you find another one, please email me at kirsten.opstad@gmail.com with the subject **[_Repo Name_] Bug** and include:
   * BUG: _A brief description of the bug_
   * FIX: _Suggestion for solution (if you have one!)_
   * If you'd like to be credited, please also include your **_github user profile link_**
