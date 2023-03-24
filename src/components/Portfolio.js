@@ -24,21 +24,14 @@ const Portfolio = ({projectList}) => {
       // convery keys & vals to useful names
       const tech = key;
       const showState = value;
-      // console log to check
-      console.log(`tech: ${tech}`)
-      console.log(`showState: ${showState}`)
+   
       // if showState value is true, add tech to array
       if (showState === true) {
-        console.log(`showState is true! Current tech list: ${techList}`)
         techList = [...techList, tech]
-      } else {
-        // if showState value is FALSE, don't change anything
-        console.log(`showState is false! Current tech list: ${techList}`)
-      }
+      } 
       
     })
     // return techList
-    console.log(techList)
     return techList
   }
 
@@ -68,21 +61,22 @@ const Portfolio = ({projectList}) => {
   let DotNetButtonVariant = showDotNet ? "secondary" : "outline-secondary";
   let PythonButtonVariant = showPython ? "secondary" : "outline-secondary";
 
-  // if anything is selected, filter from 
+  // initialize empty filtered projects array
   let filteredProjects = [];
+  // if there is any tech selected, do this
   if (techSelected.length > 0) {
+    // for each technology in techSelected
     techSelected.forEach((tech) => {
-      // copy in projects from previous step + add new tech
-      filteredProjects = [...filteredProjects, projectList.filter(p => p.techUsed.includes(tech))]
+      // get tech-specific projects
+      const techProjects = projectList.filter(p => p.techUsed.includes(tech))
+      // add tech-specific project to filtered project array
+      filteredProjects = [...filteredProjects, ...techProjects]
     })
   }
-
+  
   // conditionally display either filtered or non-filtered project list
   if (techSelected.length > 0) {
-    techSelected.forEach((tech) => {
-      // filter out
-      projectList = projectList.filter(p => p.techUsed.includes(tech))
-    })   
+    projectList = [...new Set(filteredProjects)] 
   }
 
 
