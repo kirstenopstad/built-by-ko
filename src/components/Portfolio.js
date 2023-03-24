@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import List from '../components/List'
 import { PropTypes } from "prop-types";
 import Button from 'react-bootstrap/Button';
@@ -79,15 +79,15 @@ const Portfolio = ({projectList}) => {
     projectList = [...new Set(filteredProjects)] 
   }
 
-
   return(
     <React.Fragment>
         <h2 className="section">Portfolio</h2>
-        <Button variant={JSButtonVariant} size="sm" onClick={handleJSClick}>JavaScript</Button>
-        <Button variant={ReactButtonVariant} size="sm" onClick={handleReactClick}>React</Button>
-        <Button variant={DotNetButtonVariant} size="sm" onClick={handleDotNetClick}>.Net</Button>
-        <Button variant={PythonButtonVariant} size="sm" onClick={handlePythonClick}>Python</Button>
-        {' '}
+        <div className="tech-toggle">
+          <Button variant={JSButtonVariant} size="sm" onClick={handleJSClick}>JavaScript</Button>
+          <Button variant={ReactButtonVariant} size="sm" onClick={handleReactClick}>React</Button>
+          <Button variant={DotNetButtonVariant} size="sm" onClick={handleDotNetClick}>.Net</Button>
+          <Button variant={PythonButtonVariant} size="sm" onClick={handlePythonClick}>Python</Button>
+        </div>
         <List portfolio={projectList}/>
       {/* <Detail /> */}
     </React.Fragment>
