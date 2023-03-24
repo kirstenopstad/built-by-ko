@@ -195,6 +195,18 @@ h5 {
   font-weight: 200;
 }
 
+.tech-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tech-toggle button {
+  margin: 0 5px 0 0;
+}
+
 .boh-row {
   max-height: 100px;
   overflow: scroll;
