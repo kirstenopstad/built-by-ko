@@ -4,7 +4,6 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import { getStorage, ref } from "firebase/storage";
 
 const AllProjects = ({portfolio, handleAddProjectClick, handleEditProjectClick, handleDeleteProject, handleUpdateProject}) => {
   const [show, setShow] = useState(false);
