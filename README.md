@@ -26,7 +26,6 @@ A React rebuild of the HTML & CSS static portfolio site built week one of Epicod
 * webpack
 * Node.js
 * Firebase
-* Azure
 
 ***
 
@@ -73,7 +72,7 @@ The application should have the following functionality:
 4. ✅ Create password protected admin area to add, update & delete projects
 
 ### Stretch Goals (Future Features)
-1. Visitors can sort projects by technology (i.e. "JavaScript" or "C#" or "Python")
+1. ✅ Visitors can sort projects by technology (i.e. "JavaScript" or "C#" or "Python")
 2. ✅ GitHub Actions-facilitated CI/CD
 3. 📌 Includes all Epicodus independent projects (see Content Progress Log below)
 
@@ -83,8 +82,8 @@ The application should have the following functionality:
   |Week |Project Title|Progress |
   |---|---|---|
   |1|Dev Portfolio | |
-  |2|Language Selector Quiz |✅|
-  |3|Mr. Robogers | |
+  |2|Language Selector Quiz | | 
+  |3|Mr. Robogers |✅|
   |5|Currency Exchange | |
   |4|Pizza Planet | |
   |6|Space Ages | |
@@ -97,7 +96,7 @@ The application should have the following functionality:
   |13|Parks API | |
   |14|Search Coach | |
   |15|Functional Programming (Coin Counter?) | |
-  |16|Coffee Distributor | |
+  |16|Coffee Distributor |✅|
   |17|Built By KO |✅|
   |18|MoFA |✅|
 
@@ -120,7 +119,6 @@ $ npm run start
 ***
 ## Known Bugs
 
-* Update portfolio > Update project functionality > BUG: when new image is uploaded, it doesn't add project title to image reference filename ('project-images/.png' instead of 'project-images/Bakery.png)
 * If you find another one, please email me at kirsten.opstad@gmail.com with the subject **[_Repo Name_] Bug** and include:
   * BUG: _A brief description of the bug_
   * FIX: _Suggestion for solution (if you have one!)_
