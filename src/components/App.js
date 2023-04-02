@@ -31,6 +31,7 @@ useEffect(() => {
           id: doc.id
         })
       })
+      projects.sort((a, b) => a["sortNumber"] - b["sortNumber"])
       setProjectList(projects);
     }, 
     (error) => {

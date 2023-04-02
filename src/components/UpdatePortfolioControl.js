@@ -27,7 +27,7 @@ const UpdatePortfolioControl = ({projectList}) => {
   const handleUpdateProject = async (project) => {
     const projectRef = doc(db, "projects", project.id);
     await updateDoc(projectRef, project);
-    setSelectedProject(project)
+    // setSelectedProject(project)
   }
 
   const handleAddProjectClick = () => {
@@ -51,6 +51,7 @@ const UpdatePortfolioControl = ({projectList}) => {
                   handleAddProjectClick={handleAddProjectClick}
                   handleEditProjectClick={handleEditProjectClick}
                   handleDeleteProject={handleDeleteProject}
+                  handleUpdateProject={handleUpdateProject}
                   />
   if (selectedProject) {
     content = <ProjectDetail 
