@@ -18,7 +18,6 @@ const AddProject = ({addProject, handleCloseClick}) => {
       const fileType = getFileType(e.target.image.value);
       const fileName = buildRefFileName(e.target.title.value);
       const fileRef = addRefFileExt(fileName, fileType);
-      // const metadata = buildMetadata(fileType)
       const file = document.getElementById("image").files[0] 
       uploadImage (fileRef, file);
       
@@ -102,14 +101,16 @@ const AddProject = ({addProject, handleCloseClick}) => {
         <Form.Control 
         type="text"
         name="title"
-        placeholder="Title"/>
+        placeholder="Title"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="tagline">
         <Form.Label>Tagline</Form.Label>
         <Form.Control 
         type="text"
         name="tagline"
-        placeholder="Tagline"/>
+        placeholder="Tagline"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="description">
         <Form.Label>Description</Form.Label>
@@ -117,28 +118,32 @@ const AddProject = ({addProject, handleCloseClick}) => {
         as="textarea" rows={3}
         type="text"
         name="description"
-        placeholder="Description"/>
+        placeholder="Description"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="techUsed">
         <Form.Label>TechUsed</Form.Label>
         <Form.Control 
         type="text"
         name="techUsed"
-        placeholder="TechUsed"/>
+        placeholder="TechUsed"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="liveLink">
         <Form.Label>LiveLink</Form.Label>
         <Form.Control 
         type="url"
         name="liveLink"
-        placeholder="LiveLink"/>
+        placeholder="LiveLink"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="gitLink">
         <Form.Label>GitLink</Form.Label>
         <Form.Control 
         type="url"
         name="gitLink"
-        placeholder="GitLink"/>
+        placeholder="GitLink"
+        required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="image">
         <Form.Label>Image</Form.Label>
@@ -146,7 +151,8 @@ const AddProject = ({addProject, handleCloseClick}) => {
         type="file"
         accept=".jpg, .jpeg, .png"
         name="image"
-        placeholder="Image"/>
+        placeholder="Image"
+        required/>
       </Form.Group>
       <Button type="submit">Add Project</Button>
       </Form>
