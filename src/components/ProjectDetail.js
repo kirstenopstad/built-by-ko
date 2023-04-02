@@ -48,9 +48,11 @@ const ProjectDetail = ({project, handleCloseClick, updateProject}) => {
       // if image added, upload it & update 
       if (e.target.image.value) {
         let fileType = getFileType(e.target.image.value);
-        let fileName = buildRefFileName(e.target.title.value);
+        // get project title 
+        const projTitle = (e.target.title.value) ? (e.target.title.value): title
+        const fileName = buildRefFileName(projTitle);
         fileRef = addRefFileExt(fileName, fileType);
-        let file = document.getElementById("image").files[0] 
+        const file = document.getElementById("image").files[0] 
         uploadImage (fileRef, file);
       }
       // if tech used added, parse & update
